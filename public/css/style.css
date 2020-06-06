@@ -1,4 +1,5 @@
 /*General Styles*/
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
 
 * {
 	margin: 0;
@@ -73,6 +74,7 @@ section h3.title {
 	font: bold 32px 'Montserrat', sans-serif;
 	margin-bottom: 30px;
 	text-align: center;
+	color: #97C942;
 }
 
 section p {
@@ -154,7 +156,7 @@ header nav li {
 	background-size: cover;
 	z-index: -1;
 	background-color: black;
-	animation: 1s fadein 0.5s forwards;
+	animation: 5s fadein 1s forwards;
 	opacity: 0;
 }
 
@@ -236,7 +238,7 @@ header nav li {
 	}
 }
 
-.contact form{
+/* .contact form{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap:20px;
@@ -320,6 +322,180 @@ header nav li {
 		flex-basis: 100%;
 		margin: 0 0 20px 0;
 	}
+} */
+
+
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+  color: darkslategray;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+  color: darkslategray;
+}
+
+input::placeholder, textarea::placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:focus::placeholder, textarea::focus:placeholder {
+  color: darkslategray;
+}
+
+input::-ms-placeholder, textarea::-ms-placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:focus::-ms-placeholder, textarea:focus::-ms-placeholder {
+  color: darkslategray;
+}
+
+/* on hover placeholder */
+
+input:hover::-webkit-input-placeholder, textarea:hover::-webkit-input-placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:hover:focus::-webkit-input-placeholder, textarea:hover:focus::-webkit-input-placeholder {
+  color: darkslategray;
+}
+
+input:hover::-moz-placeholder, textarea:hover::-moz-placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:hover:focus::-moz-placeholder, textarea:hover:focus::-moz-placeholder {
+  color: darkslategray;
+}
+
+input:hover::placeholder, textarea:hover::placeholder {
+  color: darkslategray2;
+  font-size: 0.875em;
+}
+
+input:hover:focus::placeholder, textarea:hover:focus::placeholder {
+  color: darkslategray;
+}
+
+input:hover::placeholder, textarea:hover::placeholder {
+  color: darkslategray;
+  font-size: 0.875em;
+}
+
+input:hover:focus::-ms-placeholder, textarea:hover::focus:-ms-placeholder {
+  color: darkslategray;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: white;
+  color: #555;
+}
+
+header {
+  position: relative;
+  margin: 100px 0 25px 0;
+  font-size: 2.3em;
+  text-align: center;
+  letter-spacing: 7px;
+}
+
+#form {
+  position: relative;
+  width: 500px;
+  margin: 50px auto 100px auto;
+}
+
+input {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875em;
+  width: 470px;
+  height: 50px;
+  padding: 0px 15px 0px 15px;
+  
+  background: transparent;
+  outline: none;
+  color: darkslategray;
+  
+  border: solid 1px #97C942;
+  border-bottom: none;
+  
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+input:hover {
+  background:#97C942;
+  color: darkslategray;
+}
+
+textarea {
+  width: 470px;
+  max-width: 470px;
+  height: 110px;
+  max-height: 110px;
+  padding: 15px;
+  
+  background: transparent;
+  outline: none;
+  
+  color: darkslategray;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875em;
+  
+  border: solid 1px #97C942;
+  
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+}
+
+textarea:hover {
+  background: #97C942;
+  color: darkslategray;
+}
+
+.recap-style{
+  margin-top: 20px;
+}
+
+#submit {
+	width: 470px;
+	max-width: 470px;
+  
+  padding: 0;
+  margin: -5px 0px 0px 0px;
+  
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875em;
+  color: darkslategray;
+  
+  outline:none;
+  cursor: pointer;
+  
+  border: solid 1px #97C942;
+  border-top: none;
+}
+
+#submit:hover {
+  color: darkslategray;
 }
 
 /*Footer Section*/
@@ -364,18 +540,3 @@ footer p {
 	}
 } 
 
-textarea{
-	width: 100%;
-	height: 300px;
-	margin-top: 30px;
-}
-
-.btn{
-	background-color: white;
-	border: 1px solid white;
-	font-family: 'Nunito', sans-serif;
-color: black;
-}
-.g-recaptcha{
-	margin: 10px;
-}

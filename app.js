@@ -25,13 +25,12 @@ app.get('/', (req, res) => {
   res.render('contact');
 });
 
-app.post('/send', (req, res) => {
+app.post('/send', async (req, res) => {
   const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
     <ul>  
       <li>Name: ${req.body.name}</li>
-      <li>Company: ${req.body.company}</li>
       <li>Email: ${req.body.email}</li>
       <li>Phone: ${req.body.phone}</li>
     </ul>
@@ -41,12 +40,12 @@ app.post('/send', (req, res) => {
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: 'mail.taptoclick.ca',
+    host: 'smtp.gmail.com',
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'alirezaimen@taptoclick.ca', // generated ethereal user
-        pass: 'Alreza1179'  // generated ethereal password
+        user: 'startlightinquiry@gmail.com', // generated ethereal user
+        pass: 'Starlight2020$'  // generated ethereal password
     },
     tls:{
       rejectUnauthorized:false
@@ -55,8 +54,8 @@ app.post('/send', (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-      from: '"Nodemailer Contact" <alirezaimen@taptoclick.ca>', // sender address
-      to: 'mj@starlightconstruction.ca', // list of receivers
+      from: 'startlightinquiry@gmail.com', // sender address
+      to: 'alirezaimen@taptoclick.ca', // list of receivers
       subject: 'Contact Request', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
@@ -72,6 +71,32 @@ app.post('/send', (req, res) => {
 
       res.render('contact', {msg:'Email has been sent'});
   });
+
+  if (!req.body.captcha)
+  return res.render('contact', { success: false, msg: 'Please select captcha' });
+
+// Secret key
+const secretKey = '6Lc33QAVAAAAAAwcgMtbgGsH6v66xKgoTSh0LHyT';
+
+// Verify URL
+const query = stringify({
+  secret: secretKey,
+  response: req.body.captcha,
+  remoteip: req.connection.remoteAddress
+});
+const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
+
+// Make a request to verifyURL
+const body = await fetch(verifyURL).then(res => res.json());
+
+// If not successful
+if (body.success !== undefined && !body.success)
+  // return res.json({ success: false, msg: 'Failed captcha verification' });
+  return res.render('contact',{ success: false, msg: 'Failed captcha verification' } )
+
+// If successful
+// return res.json({ success: true, msg: 'Captcha passed' });
+   return res.render('contact',{ success: true, msg: 'Captcha passed' } )
   });
 
 app.listen(port, () => console.log('Server started...'));
