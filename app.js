@@ -57,7 +57,7 @@ app.post('/send', async (req, res) => {
   // setup email data with unicode symbols
   let mailOptions = {
       from: 'startlightinquiry@gmail.com', // sender address
-      to: 'alirezaimen@taptoclick.ca', // list of receivers
+      to: 'mj@statlightconstruction.ca', // list of receivers
       subject: 'Contact Request', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
@@ -73,32 +73,33 @@ app.post('/send', async (req, res) => {
 
       res.render('contact', {msg:'Email has been sent'});
   });
-
-  if (!req.body.captcha)
-  return res.render('contact', { success: false, msg: 'Please select captcha' });
-
-// Secret key
-const secretKey = '6Lc33QAVAAAAAAwcgMtbgGsH6v66xKgoTSh0LHyT';
-
-// Verify URL
-const query = stringify({
-  secret: secretKey,
-  response: req.body.captcha,
-  remoteip: req.connection.remoteAddress
 });
-const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
 
-// Make a request to verifyURL
-const body = await fetch(verifyURL).then(res => res.json());
+//   if (!req.body.captcha)
+//   return res.render('contact', { success: false, msg: 'Please select captcha' });
 
-// If not successful
-if (body.success !== undefined && !body.success)
-  // return res.json({ success: false, msg: 'Failed captcha verification' });
-  return res.render('contact',{ success: false, msg: 'Failed captcha verification' } )
+// // Secret key
+// const secretKey = '6Lc33QAVAAAAAAwcgMtbgGsH6v66xKgoTSh0LHyT';
 
-// If successful
-// return res.json({ success: true, msg: 'Captcha passed' });
-   return res.render('contact',{ success: true, msg: 'Captcha passed' } )
-  });
+// // Verify URL
+// const query = stringify({
+//   secret: secretKey,
+//   response: req.body.captcha,
+//   remoteip: req.connection.remoteAddress
+// });
+// const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
+
+// // Make a request to verifyURL
+// const body = await fetch(verifyURL).then(res => res.json());
+
+// // If not successful
+// if (body.success !== undefined && !body.success)
+//   // return res.json({ success: false, msg: 'Failed captcha verification' });
+//   return res.render('contact',{ success: false, msg: 'Failed captcha verification' } )
+
+// // If successful
+// // return res.json({ success: true, msg: 'Captcha passed' });
+//    return res.render('contact',{ success: true, msg: 'Captcha passed' } )
+//   });
 
 app.listen(port, () => console.log('Server started...'));
