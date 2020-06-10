@@ -46,8 +46,8 @@ app.post('/send', async (req, res) => {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'startlightinquiry@gmail.com', // generated ethereal user
-        pass: 'Starlight2020$'  // generated ethereal password
+        user: '', // generated ethereal user
+        pass: ''  // generated ethereal password
     },
     tls:{
       rejectUnauthorized:false
@@ -56,8 +56,8 @@ app.post('/send', async (req, res) => {
 
   // setup email data with unicode symbols
   let mailOptions = {
-      from: 'startlightinquiry@gmail.com', // sender address
-      to: 'mj@starlight-const.ca', // list of receivers
+      from: '', // sender address
+      to: '', // list of receivers
       subject: 'Contact Request', // Subject line
       text: 'Hello world?', // plain text body
       html: output // html body
@@ -79,7 +79,7 @@ app.post('/send', async (req, res) => {
 //   return res.render('contact', { success: false, msg: 'Please select captcha' });
 
 // // Secret key
-// const secretKey = '6Lc33QAVAAAAAAwcgMtbgGsH6v66xKgoTSh0LHyT';
+// const secretKey = '';
 //184.168.221.46
 
 // // Verify URL
