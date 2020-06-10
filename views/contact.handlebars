@@ -79,6 +79,29 @@
       <li><a href="https://facebook.com/"><i class="fa fa-facebook-square fa-2x"></i></a></li>
     </ul>
   </footer>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA87zmd1mNyr1B-cUZ8fkoz17ZbGi2KJyM",
+    authDomain: "starlight-const.firebaseapp.com",
+    databaseURL: "https://starlight-const.firebaseio.com",
+    projectId: "starlight-const",
+    storageBucket: "starlight-const.appspot.com",
+    messagingSenderId: "887982383925",
+    appId: "1:887982383925:web:ebaed7872554e50a03e27c",
+    measurementId: "G-PMBBV3KL3N"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 
 </body>
 </html>

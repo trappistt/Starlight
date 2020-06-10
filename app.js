@@ -80,6 +80,7 @@ app.post('/send', async (req, res) => {
 
 // // Secret key
 // const secretKey = '6Lc33QAVAAAAAAwcgMtbgGsH6v66xKgoTSh0LHyT';
+//184.168.221.46
 
 // // Verify URL
 // const query = stringify({
